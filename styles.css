@@ -3,7 +3,19 @@
 * {
     margin: 0;
     padding: 0;
+    /*background: #000;*/
 }
+
+:root{
+    --base-fontsize: 10;
+    --base-design-width: 1920;
+}
+
+html {
+    /*Base font size based of viewport width (1920px) for using rems*/
+    font-size: calc(var(--base-fontsize)/var(--base-design-width) * 100vw);
+}
+
 
 h1 {
     font-family: 'klav-bold', Arial, sans-serif;
@@ -11,9 +23,9 @@ h1 {
 
 .outer-wrapper {
     /*These will be transformed so h and w are mixed*/
-    width: 100vh;
-    height: 100vw;
-    transform: rotate(-90deg) translateX(-100vh);
+    /*width: 100vh;*/
+    /*height: 100vw;*/
+    /*transform: rotate(-90deg) translateX(-100vh);*/
     transform-origin: top left;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -22,24 +34,101 @@ h1 {
     /*Hiding scrollbar*/
     scrollbar-width: none;
     -ms-overflow-style: none;
+
+    height: 100%;
+    width: 100%;
 }
+
+.carousel {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*calc total width of slides combined*/
+    /*width: 600vw;*/
+    /*transform: rotate(90deg) translateY(-100vh);*/
+    /*transform-origin: top left;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-bg {
+    height: 100%;
+    position: absolute;
+    transition: transform 1s ease-in-out;
+
+}
+
+.carousel-list {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.carousel-item {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+
+    text-transform: uppercase;
+    text-decoration: underline;
+    list-style-type: none;
+
+    color: white;
+    font-family: 'klav-light', Arial, sans-serif;
+    font-size: 5rem;
+    opacity: 0;
+}
+
+.carousel-item.isActive {
+    opacity: 1;
+}
+
+.carousel-item[align='left'] {
+    left: 10%;
+}
+.carousel-item[align='right'] {
+    right: 10%
+}
+
+.arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid white;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.arrow-left {
+    left: 5rem;
+    border-right: none;
+    border-top: none;
+    transform: rotate(45deg);
+}
+
+.arrow-right {
+    right: 5rem;
+    border-left: none;
+    border-bottom: none;
+    transform: rotate(45deg);
+}
+
 
 ::-webkit-scrollbar {
     display: none;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    /*calc total width of slides combined*/
-    width: 700vw;
-    transform: rotate(90deg) translateY(-100vh);
-    transform-origin: top left;
-}
+
 
 .slide {
-    width: 600vw;
-    height: 100vw;
+    /*width: 600vw;*/
+    /*height: 100vw;*/
+    height: 100%;
+    width: 100%;
 }
 
 .bg {
@@ -48,34 +137,69 @@ h1 {
     background-size: 600vw 100vh;
 }
 
-.firstSlide {
-    display: flex;
-    margin: 1em;
-    width: 100vw;
-}
+/*.firstSlide {*/
+/*    display: flex;*/
+/*    margin: 1em;*/
+/*    width: 100vw;*/
+/*}*/
 
-.left {
-    width: 50%;
-}
+/*.left {*/
+/*    width: 50%;*/
+/*    min-height: calc(100vh - 150px);*/
+/*}*/
 
-.right {
-    width: 50%;
-}
+/*.right {*/
+/*    width: 50%;*/
+/*    min-height: calc(100vh - 150px);*/
+/*}*/
 
-h1 {
-    text-transform: uppercase;
-    text-decoration: underline;
-    color: white;
-    font-family: 'klav-light', Arial, sans-serif;
-    font-size: calc(1.5rem + ((1vw - 0.48em) * 4.1667));
+/*h1 {*/
+/*    text-transform: uppercase;*/
+/*    text-decoration: underline;*/
+/*    color: white;*/
+/*    font-family: 'klav-light', Arial, sans-serif;*/
+/*    font-size: calc(1.5rem + ((1vw - 0.48em) * 4.1667));*/
 
-}
+/*}*/
+/*Footer styles*/
+/*footer {*/
+/*    height: 150px;*/
+/*    width: 100vw;*/
+/*    //background: mediumpurple;*/
+/*    display: flex;*/
+/*}*/
 
-p {
-    font-size: 10px;
-    font-family: 'klav-light', Arial, sans-serif;
-    color: white;
-}
+/*.footer-left {*/
+/*    width: 50%;*/
+/*    padding: 15px;*/
+/*}*/
+
+/*p {*/
+/*    font-size: 10px;*/
+/*    font-family: 'klav-light', Arial, sans-serif;*/
+/*    color: white;*/
+/*}*/
+
+/*nav {*/
+/*    width: 100%;*/
+/*    max-width: 200px;*/
+/*    font-size: 10px;*/
+/*    line-height: 9px;*/
+/*    border: 2px dotted #fff;*/
+/*    float: left;*/
+/*    margin-right: 20px;*/
+/*    margin-top: 30px;*/
+/*    height: 20px;*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(10, 1fr);*/
+/*    grid-template-rows: 1fr;*/
+/*}*/
+
+/*.item {*/
+/*    border-right: 1px dashed white;*/
+/*    font-family: 'klav-light', Arial, sans-serif;*/
+/*    color: white;*/
+/*}*/
 
 
 /*Fonts added locally*/
