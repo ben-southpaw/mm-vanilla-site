@@ -1,0 +1,81 @@
+
+/*Styles CSS*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'klav-bold', Arial, sans-serif;
+}
+
+.outer-wrapper {
+    /*These will be transformed so h and w are mixed*/
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg) translateX(-100vh);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+
+    /*Hiding scrollbar*/
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    /*calc total width of slides combined*/
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+}
+
+.slide {
+    width: 400vw;
+    height: 100vw;
+}
+
+.one {
+    /*background: aqua;*/
+    background-image: url(./assets/images/background.jpg);
+    background-repeat: no-repeat;
+}
+.two {
+    background: cadetblue;
+}
+.three {
+    background: cornflowerblue;
+}
+.four {
+    background: mediumpurple;
+}
+
+
+
+/*Fonts added locally*/
+@font-face {
+    font-family: 'klav-bold';
+    src:  url('assets/font/klavika-bold-webfont.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'klav-light';
+    src:  url('assets/font/klavika-light-webfont.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'klav-medium';
+    src:  url('assets/font/klavika-medium-webfont.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'klav-regular';
+    src:  url('assets/font/klavika-regular-webfont.woff') format('woff')
+}
