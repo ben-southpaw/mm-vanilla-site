@@ -12,7 +12,7 @@ export default class SplashScreen {
             setTimeout(()=>{
                 // this.splash.classList.add('display-none');
                 console.log('reached here');
-            }, 2000);
+            }, 4000);
         })
     }
 
