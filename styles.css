@@ -3,11 +3,11 @@
 * {
     margin: 0;
     padding: 0;
-    /*background: #000;*/
+    box-sizing: border-box;
 }
 
 :root{
-    --base-fontsize: 10;
+    --base-fontsize: 12;
     --base-design-width: 1920;
 }
 
@@ -152,6 +152,14 @@ html {
     right: 10%
 }
 
+.carousel-item:first-of-type {
+    top: 4rem;
+    left: 4rem;
+    position: absolute;
+    transform: translateY(-10%);
+}
+
+
 .arrow {
     position: absolute;
     top: 50%;
@@ -228,7 +236,6 @@ nav {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: 1fr;
-    /*justify-items: center;*/
 }
 
 .item {
@@ -238,19 +245,21 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.span {
-    
+    cursor: pointer;
 }
 
 .item:last-of-type {
     border-right: none;
 }
 
+span {
+    
+}
+
 .icon {
     filter: invert(100%);
-    width: 100%;
+    width: 100px;
+    height: 85px;
     max-width: 12rem;
 }
 
