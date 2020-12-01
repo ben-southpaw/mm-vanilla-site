@@ -1,8 +1,9 @@
 import Carousel from './carousel.js';
+import SplashScreen from './splash.js';
 
 class App {
     constructor(props) {
-        console.log('here');
+        this.splash = new SplashScreen();
         this.carousel = new Carousel();
         this.addEvents();
         this.resize();
@@ -13,7 +14,6 @@ class App {
     addEvents() {
         window.addEventListener('resize', this.resize.bind(this));
         window.addEventListener('mousewheel', this.onScroll.bind(this));
-
         window.addEventListener('load', this.onLoad.bind(this))
 
     }
@@ -32,6 +32,7 @@ class App {
 
     onLoad(e){
         console.log(e,'loaded');
+        this.splash.onLoad();
     }
 
     /*
