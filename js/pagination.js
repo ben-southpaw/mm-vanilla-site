@@ -3,7 +3,7 @@ import NavItem from "./nav-item.js";
 
 export default class Pagination {
     constructor(el, index, clickCb = () => {}) {
-       
+
 
     }
 

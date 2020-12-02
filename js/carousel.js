@@ -51,7 +51,7 @@ export default class Carousel {
             if(i === this.currentIndex){
                 setTimeout(()=> {
                     item.activate();
-                }, 1500)
+                }, 500)
 
                 /*transition fadein needs to matcg bg fadein*/
 
@@ -63,11 +63,14 @@ export default class Carousel {
             if(i === this.currentIndex){
                 setTimeout(()=> {
                     value.itemClicked();
-                }, 1500)
+                }, 500)
             } else {
                 value.itemReset();
             }
         })
+        const bgOffset = this.bgOffsetValue * this.currentIndex;
+        this.bg.style.transform = `translateX(${-bgOffset}px)`;
+
     }
 
     onLeftArrowClick(e){
