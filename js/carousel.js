@@ -1,10 +1,9 @@
 import CarouselItem from "./carousel-item.js";
 import {clamp} from './utils.js';
-import Pagination from './pagination.js';
+import NavItem from './nav-item.js'
 
 export default class Carousel {
     constructor(props) {
-        console.log('log carousel');
         this.el = document.querySelector('.carousel');
         this.bg = document.querySelector('.carousel-bg');
         this.arrowLeft = document.querySelector('.arrow-left');
@@ -29,26 +28,30 @@ export default class Carousel {
             const carouselItem = new CarouselItem(el)
             return carouselItem;
         })
+        const navItems = document.querySelectorAll('.nav-value');
+        this.navValues = [...navItems].map((el)=> {
+            const navItem = new NavItem(el);
+            return navItem;
+        })
     }
 
     resize(width, height) {
-        console.log(width, height,'resizeMe');
+        // console.log(width, height,'resizeMe');
         const clientWidth = this.el.clientWidth;
         const clientHeight = this.el.clientHeight;
         this.bgClientWidth = this.bg.clientWidth;
         this.bgClientHeight = this.bg.clientHeight;
         this.bgOffsetValue = (this.bgClientWidth - clientWidth) / (this.items.length - 1);
-        console.log(this.bgOffsetValue, 'here ````');
     }
     
     setIndex(index) {
         this.currentIndex = clamp(index, 0, this.items.length - 1);
-        console.log(this.currentIndex)
+        console.log(this.currentIndex, 'index here');
         this.items.forEach((item, i)=>{
             if(i === this.currentIndex){
                 setTimeout(()=> {
                     item.activate();
-                }, 2000)
+                }, 1500)
 
                 /*transition fadein needs to matcg bg fadein*/
 
@@ -56,13 +59,19 @@ export default class Carousel {
                 item.deactivate();
             }
         })
-        const bgOffset = this.bgOffsetValue * this.currentIndex;
-        this.bg.style.transform = `translateX(${-bgOffset}px)`;
+        this.navValues.forEach((value, i)=>{
+            if(i === this.currentIndex){
+                setTimeout(()=> {
+                    value.itemClicked();
+                }, 1500)
+            } else {
+                value.itemReset();
+            }
+        })
     }
 
     onLeftArrowClick(e){
         this.setIndex(this.currentIndex -1);
-
     }
 
 
@@ -70,6 +79,17 @@ export default class Carousel {
     onRightArrowClick(e){
         this.setIndex(this.currentIndex +1);
     }
+
+    // removeArrows(index){
+    //     console.log(index.length, 'index length here');
+    //     if(index === 0){
+    //         this.arrowLeft.style.display = 'none';
+    //     } else if (index === index.length) {
+    //         this.arrowRight.style.display = 'none';
+    //     } else {
+    //         this.arrowLeft.style.display = 'block';
+    //     }
+    // }
 
 
 };

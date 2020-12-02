@@ -3,7 +3,6 @@
 footer {
     height: 100px;
     width: 100vw;
-    /*background: mediumpurple;*/
     display: flex;
     position: absolute;
     bottom: 0;
@@ -54,7 +53,7 @@ nav {
     border-right: none;
 }
 
-.nav-item.isActive > span {
+.nav-item > span.isActive {
     height: 80%;
     width: 80%;
     background: white;

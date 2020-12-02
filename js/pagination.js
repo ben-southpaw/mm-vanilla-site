@@ -1,16 +1,27 @@
-
+import CarouselItem from "./carousel-item.js";
+import NavItem from "./nav-item.js";
 
 export default class Pagination {
     constructor(el, index, clickCb = () => {}) {
-        console.log('log carousel');
-        this.el = document.querySelector('.carousel');
-        this.bg = document.querySelector('.carousel-bg');
+       
 
-
-        this.clickCb = cb;
     }
 
+    // addEvents() {
+    //     this.navValue.addEventListener('click', this.setIndexFromNav.bind(this));
+    // }
+
+    setIndexFromNav() {
+
+        const clickedIndex = document.querySelector('.nav-value').textContent;
+
+    }
+
+
+
+
     onclick() {
+
         this.clickCb(index)
     }
 

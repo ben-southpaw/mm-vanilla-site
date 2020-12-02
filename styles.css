@@ -58,14 +58,12 @@ html {
 }
 
 .carousel-item {
-    top: 50%;
+    top: calc((100vh - 100px) / 2);
     position: absolute;
-    transform: translateY(-50%);
-
+    transform: translateY(-10%);
     text-transform: uppercase;
     text-decoration: underline;
     list-style-type: none;
-
     color: white;
     font-family: 'klav-light', Arial, sans-serif;
     font-size: 5rem;
@@ -93,7 +91,7 @@ html {
 
 .arrow {
     position: absolute;
-    top: 50%;
+    top: calc((100vh - 100px) / 2);
     transform: translateY(-50%);
     height: 3rem;
     width: 3rem;
