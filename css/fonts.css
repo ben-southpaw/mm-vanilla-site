@@ -1,0 +1,20 @@
+/*Fonts added locally*/
+@font-face {
+    font-family: 'klav-bold';
+    src:  url('../assets/font/klavika-bold-webfont.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'klav-light';
+    src:  url('../assets/font/klavika-light-webfont.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'klav-medium';
+    src:  url('../assets/font/klavika-medium-webfont.woff') format('woff')
+}
+
+@font-face {
+    font-family: 'klav-regular';
+    src:  url('../assets/font/klavika-regular-webfont.woff') format('woff')
+}

@@ -1,5 +1,8 @@
+@import "css/fonts.css";
+@import "css/splash.css"; /*Styles CSS*/
+@import "css/footer.css";
 
-/*Styles CSS*/
+
 * {
     margin: 0;
     padding: 0;
@@ -19,78 +22,6 @@ html {
     /*Base font size based of viewport width (1920px) for using rems*/
     font-size: calc(var(--base-fontsize)/var(--base-design-width) * 100vw);
 }
-
-.splash {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    z-index: 69;
-    color: #fff;
-    text-align: center;
-    line-height: 90vh;
-}
-
-.splash.display-none {
-    opacity: 0;
-    z-index: -1;
-    transition: all 0.5s;
-}
-
-.monk {
-    height: 13.5rem;
-    width: 9rem;
-    transform-origin: bottom;
-    animation: scaleIn 2s ease-in, bounce 0.7s 2s ease-in-out;
-}
-@keyframes scaleIn {
-    0% {
-        transform: scale(0.0);
-    }
-    100% {
-        transform: scale(1.0);
-    }
-}
-
-@keyframes bounce {
-    0%   { transform: translateY(0); }
-    40%  { transform: translateY(-30px); }
-    60%  { transform: translateY(0); }
-    80%  { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-
-.splash-text {
-    font-family: 'klav-light', Arial, sans-serif;
-    font-size: 3rem;
-    font-style: italic;
-    width: 100%;
-    position: fixed;
-    top: 5rem;
-
-}
-
-.splash-text:before {
-    content: 'Patience!';
-    display: block;
-    animation: fadeIn 4s 2s cubic-bezier(0.22, 0.58, 0.48, 1.51) forwards, scaleIn 3s 1s cubic-bezier(0.22, 0.58, 0.48, 1.51) forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    0%   { opacity: 0; }
-    40%  { opacity: 0.5; }
-    60%  { opacity: 1;}
-    80%  { opacity: 1;}
-    100% { opacity: 1; content: "Patience, young padawan..."}
-}
-
-/*.fade-in {*/
-/*    opacity: 0;*/
-/*    animation: fadeIn 2s ease-in forwards;*/
-/*}*/
 
 .outer-wrapper {
     transform-origin: top left;
@@ -197,90 +128,5 @@ html {
     background-size: 600vw 100vh;
 }
 
-/*Footer styles*/
-footer {
-    height: 100px;
-    width: 100vw;
-    /*background: mediumpurple;*/
-    display: flex;
-    position: absolute;
-    bottom: 0;
-}
-
-.flex-left {
-    width: 50%;
-    padding: 15px;
-}
-
-.flex-right {
-    width: 50%;
-    padding: 15px;
-    text-align: right;
-}
-
-p {
-    font-size: 10px;
-    font-family: 'klav-light', Arial, sans-serif;
-    color: white;
-}
-
-nav {
-    width: 100%;
-    max-width: 35rem;
-    font-size: 2rem;
-    line-height: 10px;
-    border: 2px dotted #fff;
-    margin: 2rem;
-    margin-left: 0;
-    height: 3rem;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: 1fr;
-}
-
-.item {
-    border-right: 2px dotted white;
-    font-family: 'klav-light', Arial, sans-serif;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.item:last-of-type {
-    border-right: none;
-}
-
-span {
-    
-}
-
-.icon {
-    filter: invert(100%);
-    width: 100px;
-    height: 85px;
-    max-width: 12rem;
-}
 
 
-/*Fonts added locally*/
-@font-face {
-    font-family: 'klav-bold';
-    src:  url('assets/font/klavika-bold-webfont.woff') format('woff')
-}
-
-@font-face {
-    font-family: 'klav-light';
-    src:  url('assets/font/klavika-light-webfont.woff') format('woff')
-}
-
-@font-face {
-    font-family: 'klav-medium';
-    src:  url('assets/font/klavika-medium-webfont.woff') format('woff')
-}
-
-@font-face {
-    font-family: 'klav-regular';
-    src:  url('assets/font/klavika-regular-webfont.woff') format('woff')
-}

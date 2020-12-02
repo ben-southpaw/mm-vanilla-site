@@ -1,5 +1,5 @@
-import Carousel from './carousel.js';
-import SplashScreen from './splash.js';
+import Carousel from './js/carousel.js';
+import SplashScreen from './js/splash.js';
 
 class App {
     constructor(props) {
@@ -14,7 +14,8 @@ class App {
     addEvents() {
         window.addEventListener('resize', this.resize.bind(this));
         window.addEventListener('mousewheel', this.onScroll.bind(this));
-        window.addEventListener('load', this.onLoad.bind(this))
+        window.addEventListener('load', this.onSplash.bind(this));
+        // window.addEventListener('click', this.onClick.bind(this));
 
     }
 
@@ -30,15 +31,16 @@ class App {
 
 
 
-    onLoad(e){
+    onSplash(e){
         console.log(e,'loaded');
         this.splash.onLoad();
     }
 
-    /*
-    onclick
-    * app.carousel.setIndex(7)
-    * */
+
+    // //register clicks then set index based on this
+    // onClick(e) {
+    //     app.carousel.setIndex(7)
+    // }
 
 }
 

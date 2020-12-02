@@ -29,7 +29,6 @@ export default class Carousel {
             const carouselItem = new CarouselItem(el)
             return carouselItem;
         })
-        console.log(listItems, 'lists ehre')
     }
 
     resize(width, height) {
