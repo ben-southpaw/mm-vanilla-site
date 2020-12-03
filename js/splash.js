@@ -2,8 +2,7 @@ export default class SplashScreen {
     constructor(props) {
         this.splash = document.querySelector('.splash');
         // this.initialText = document.querySelector('.initial-text');
-        // this.leftText = document.querySelector('.left-text');
-        // this.rightText = document.querySelector('.right-text');
+        // this.secondaryText = document.querySelector('.secondary-text');
         this.onLoad();
 
 
@@ -13,7 +12,8 @@ export default class SplashScreen {
         document.addEventListener('DOMContentLoaded', (e)=> {
             setTimeout(()=>{
                 this.splash.classList.add('display-none');
-            }, 4000); //timeout should be other transition times summed.
+                console.log('reached here');
+            }, 4500);
         })
     }
 
