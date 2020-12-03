@@ -1,11 +1,11 @@
-.contact-slide {
+#contact-slide {
     height: 100%;
     width: 100%;
-    background-image: url(../assets/images/background.jpg);
     background-color: black;
-    background-repeat: no-repeat;
-    background-position-x: -7150px;
-    background-size: cover;
+    /*background-image: url(../assets/images/background.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position-x: 115%;*/
+    /*background-size: cover;*/
     top: unset;
     transform: unset;
 }
@@ -18,9 +18,8 @@
     text-align: right;
 }
 
-h1 {
+.contact-title {
     font-size: 52px;
-    /*font-weight: 400;*/
     text-transform: uppercase;
     text-decoration: underline;
 }

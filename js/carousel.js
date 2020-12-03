@@ -71,20 +71,21 @@ export default class Carousel {
                 value.itemReset();
             }
         })
-        const bgOffset = this.bgOffsetValue * this.currentIndex;
+        let bgOffset = this.bgOffsetValue * this.currentIndex;
         this.bg.style.transform = `translateX(${-(bgOffset)}px)`;
 
 
-        //if current index  = last then add width?
-        //transform: translateX(-7100.61px)
         if (this.currentIndex === this.items.length - 1) {
-            // this.bg.style.display = 'none';
-            // this.bg.style.width -= 2600;
+            bgOffset += 750;
+            this.arrowRight.style.display = 'none';
 
-            this.bg.style.transform = `translateX(${-(bgOffset + 750)}px)`;
-            console.log(this.bgOffsetValue,'reached');
-
-
+            this.bg.style.transform = `translateX(${-(bgOffset)}px)`;
+            
+        } else if (this.currentIndex === 0) {
+            this.arrowLeft.style.display = 'none';
+        } else {
+            this.arrowRight.style.display = 'block';
+            this.arrowLeft.style.display = 'block';
         }
     }
 
