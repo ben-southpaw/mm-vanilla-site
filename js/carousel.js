@@ -6,15 +6,16 @@ export default class Carousel {
     constructor(props) {
         this.el = document.querySelector('.carousel');
         this.bg = document.querySelector('.carousel-bg');
+        this.carouselList = document.querySelector('.carousel-list');
+
         this.arrowLeft = document.querySelector('.arrow-left');
         this.arrowRight = document.querySelector('.arrow-right');
         //get paginations els
         this.addEvents();
         this.createItems();
-        //this.createPaginationItems();
+        this.createPaginationItems();
         this.currentIndex = 0;
         this.setIndex(this.currentIndex);
-
     }
 
     addEvents() {
@@ -24,10 +25,12 @@ export default class Carousel {
 
     createItems() {
         const listItems = this.el.querySelectorAll('.carousel-item');
-        this.items = [...listItems].map((el)=> {
+        this.items = [...listItems].map((el) => {
             const carouselItem = new CarouselItem(el)
             return carouselItem;
         })
+    }
+    createPaginationItems(){
         const navItems = document.querySelectorAll('.nav-value');
         this.navValues = [...navItems].map((el)=> {
             const navItem = new NavItem(el);
@@ -41,12 +44,12 @@ export default class Carousel {
         const clientHeight = this.el.clientHeight;
         this.bgClientWidth = this.bg.clientWidth;
         this.bgClientHeight = this.bg.clientHeight;
-        this.bgOffsetValue = (this.bgClientWidth - clientWidth) / (this.items.length - 1);
+        this.bgOffsetValue = (this.bgClientWidth - clientWidth) / (this.items.length - 2);
+
     }
     
     setIndex(index) {
         this.currentIndex = clamp(index, 0, this.items.length - 1);
-        console.log(this.currentIndex, 'index here');
         this.items.forEach((item, i)=>{
             if(i === this.currentIndex){
                 setTimeout(()=> {
@@ -69,9 +72,22 @@ export default class Carousel {
             }
         })
         const bgOffset = this.bgOffsetValue * this.currentIndex;
-        this.bg.style.transform = `translateX(${-bgOffset}px)`;
+        this.bg.style.transform = `translateX(${-(bgOffset)}px)`;
 
+
+        //if current index  = last then add width?
+        //transform: translateX(-7100.61px)
+        if (this.currentIndex === this.items.length - 1) {
+            // this.bg.style.display = 'none';
+            // this.bg.style.width -= 2600;
+
+            this.bg.style.transform = `translateX(${-(bgOffset + 750)}px)`;
+            console.log(this.bgOffsetValue,'reached');
+
+
+        }
     }
+
 
     onLeftArrowClick(e){
         this.setIndex(this.currentIndex -1);

@@ -1,5 +1,4 @@
 
-
 export default class NavItem {
     constructor(el) {
         this.el = el;

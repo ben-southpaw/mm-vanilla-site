@@ -1,5 +1,6 @@
 @import "css/fonts.css";
-@import "css/splash.css"; /*Styles CSS*/
+@import "css/splash.css";
+@import "css/contact.css";
 @import "css/footer.css";
 
 
@@ -31,7 +32,6 @@ html {
     /*Hiding scrollbar*/
     scrollbar-width: none;
     -ms-overflow-style: none;
-
     height: 100%;
     width: 100%;
 }
@@ -58,9 +58,9 @@ html {
 }
 
 .carousel-item {
-    top: calc((100vh - 100px) / 2);
+    /* top: calc((100vh - 100px) / 2); */
     position: absolute;
-    transform: translateY(-10%);
+    /* transform: translateY(-10%); */
     text-transform: uppercase;
     text-decoration: underline;
     list-style-type: none;
@@ -82,10 +82,10 @@ html {
 }
 
 .carousel-item:first-of-type {
-    top: 4rem;
-    left: 4rem;
-    position: absolute;
-    transform: translateY(-10%);
+     top: 4rem;
+     left: 4rem;
+     position: absolute;
+     transform: translateY(-10%);
 }
 
 
@@ -120,11 +120,11 @@ html {
 
 
 
-.bg {
-    background-image: url(./assets/images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: 600vw 100vh;
-}
+/*.bg {*/
+/*    background-image: url(./assets/images/background.jpg);*/
+/*    background-repeat: no-repeat;*/
+/*    //background-size: 600vw 100vh;*/
+/*}*/
 
 
 
