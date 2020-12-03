@@ -2,20 +2,20 @@
     height: 100%;
     width: 100%;
     background-color: black;
-    /*background-image: url(../assets/images/background.jpg);*/
-    /*background-repeat: no-repeat;*/
-    /*background-position-x: 115%;*/
-    /*background-size: cover;*/
     top: unset;
-    transform: unset;
 }
 
 .contact-container {
     float: right;
     width: calc(50% - 30px);
-    margin: 15px;
     display: inline-block;
     text-align: right;
+    transition: transform 1s 1s ease-in;
+    transform: translateX(350px);
+}
+
+.contact-container.isActive {
+    transform: translateX(0);
 }
 
 .contact-title {
@@ -44,6 +44,8 @@
 .socials {
     display: inline-flex;
     font-size: 2rem;
+    margin-top: 2.5rem;
+    color: white;
 }
 
 .social-container {

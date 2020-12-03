@@ -11,10 +11,11 @@
     line-height: 90vh;
 }
 
-.splash.display-none {
+.splash.fade-out {
     opacity: 0;
     z-index: -1;
     transition: all 0.5s;
+    pointer-events: none;
 }
 
 .monk {
@@ -35,8 +36,8 @@
 
 .initial-text {
     display: inline-block;
-    position: absolute;
-    left: 74rem;
+    /* position: absolute; */
+    left: 0rem;
     animation:  scaleIn 2s 1s cubic-bezier(0.22, 0.58, 0.48, 1.51) forwards,
                 moveLeft 1s 3s linear forwards;
     opacity: 0;

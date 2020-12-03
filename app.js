@@ -1,12 +1,10 @@
 import Carousel from './js/carousel.js';
 import SplashScreen from './js/splash.js';
-import Pagination from "./js/pagination.js";
 
 class App {
     constructor(props) {
         this.splash = new SplashScreen();
         this.carousel = new Carousel();
-        this.pagination = new Pagination();
         this.addEvents();
         this.resize();
 
@@ -17,7 +15,7 @@ class App {
         window.addEventListener('resize', this.resize.bind(this));
         window.addEventListener('mousewheel', this.onScroll.bind(this));
         window.addEventListener('load', this.onSplash.bind(this));
-        window.addEventListener('click', this.onClick.bind(this));
+        window.addEventListener('keydown', this.onKeyDown.bind(this));
 
     }
 
@@ -40,9 +38,17 @@ class App {
 
 
     //register clicks then set index based on this
-    onClick(e) {
-        this.pagination.setIndexFromNav(e);
-        // app.carousel.setIndex(7);
+    onKeyDown(e) {
+        switch (e.key) {
+            case 'ArrowLeft':
+                this.carousel.previous();
+                break;
+
+            case 'ArrowRight':
+                this.carousel.next();
+                break;
+        }
+        // this.carousel.setIndex(7);
 
     }
 

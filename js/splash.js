@@ -11,8 +11,10 @@ export default class SplashScreen {
     onLoad() {
         document.addEventListener('DOMContentLoaded', (e)=> {
             setTimeout(()=>{
-                this.splash.classList.add('display-none');
-                console.log('reached here');
+                this.splash.classList.add('fade-out');
+                setTimeout(()=>{
+                    this.splash.style.display = 'none';
+                },500)
             }, 4500);
         })
     }
