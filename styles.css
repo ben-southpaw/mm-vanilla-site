@@ -58,9 +58,9 @@ html {
 }
 
 .carousel-item {
-    /* top: calc((100vh - 100px) / 2); */
+     top: calc((100vh - 100px) / 2);
     position: absolute;
-    /* transform: translateY(-10%); */
+     transform: translateY(-10%);
     text-transform: uppercase;
     text-decoration: underline;
     list-style-type: none;

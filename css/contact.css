@@ -15,8 +15,13 @@
     width: calc(50% - 30px);
     margin: 15px;
     display: inline-block;
+    text-align: right;
 }
 
 h1 {
+    font-size: 52px;
+    /*font-weight: 400;*/
     text-transform: uppercase;
+    text-decoration: underline;
 }
+
