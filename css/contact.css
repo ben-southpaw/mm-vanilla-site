@@ -10,7 +10,7 @@
     transform: unset;
 }
 
-.text-container {
+.contact-container {
     float: right;
     width: calc(50% - 30px);
     margin: 15px;
@@ -19,8 +19,44 @@
 }
 
 .contact-title {
-    font-size: 52px;
-    text-transform: uppercase;
+    top: 4rem;
+    right: 4rem;
+    position: absolute;
+    transform: translateY(-10%);
+    font-family: 'klav-light', Arial, sans-serif;
+    font-size: 5rem;
+    color: white;
     text-decoration: underline;
 }
+
+.text-container {
+    position: absolute;
+    top: calc((100vh - 100px) / 2);
+    right: 5rem;
+    transform: translateY(-50%);
+    text-transform: none;
+}
+
+.mm-link {
+    color: white;
+}
+
+.socials {
+    display: inline-flex;
+    font-size: 2rem;
+}
+
+.social-container {
+    display: inline-flex;
+}
+
+.social-container > p {
+    margin-right: 1rem;
+}
+
+i {
+    margin: 0 1rem;
+}
+
+
 

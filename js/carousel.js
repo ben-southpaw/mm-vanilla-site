@@ -80,7 +80,7 @@ export default class Carousel {
             this.arrowRight.style.display = 'none';
 
             this.bg.style.transform = `translateX(${-(bgOffset)}px)`;
-            
+
         } else if (this.currentIndex === 0) {
             this.arrowLeft.style.display = 'none';
         } else {
