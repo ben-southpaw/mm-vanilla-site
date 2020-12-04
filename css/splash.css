@@ -1,14 +1,16 @@
 .splash {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: #000;
+    background: black;
     z-index: 69 !important;
-    color: #fff;
+    color: white;
     text-align: center;
-    line-height: 90vh;
 }
 
 .splash.fade-out {
@@ -18,66 +20,100 @@
     pointer-events: none;
 }
 
+.monk-container {
+    position: relative;
+}
+
+.monk-container:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    height: 30rem;
+    z-index: -1;
+    background: radial-gradient(rgba(255,255,0,0.3), transparent 70%);
+    opacity: 0;
+    transition: opacity 2s;
+}
+
 .monk {
     height: 13.5rem;
     width: 9rem;
+}
+
+.monk-container.scale:before {
+    opacity: 1;
+}
+
+.monk-container.scale .monk {
     transform-origin: bottom;
-    animation: scaleIn 2s ease-in forwards, bounce 0.7s 2s ease-in-out forwards;
+    animation: scaleIn 0.4s ease-in forwards, bounce 0.8s 0.4s ease-in-out forwards;
 }
 
 .splash-text {
     font-family: 'klav-light', Arial, sans-serif;
     font-size: 3rem;
     font-style: italic;
-    width: 100%;
-    position: fixed;
-    top: 5rem;
+    margin-top: 1rem;
+    white-space: nowrap;
+    transform: translateX(11rem);
+
+    display: flex;
 }
 
 .initial-text {
-    display: inline-block;
-    /* position: absolute; */
-    left: 0rem;
-    animation:  scaleIn 2s 1s cubic-bezier(0.22, 0.58, 0.48, 1.51) forwards,
-                moveLeft 1s 3s linear forwards;
-    opacity: 0;
+    overflow: hidden;
+    padding-right: 1rem;
+    transform: scale(0);
+    position: relative;
 }
 
-
 .secondary-text {
-    display: inline-block;
-    position: absolute;
-    left: 72rem;
-    animation: moveRight 1s 4s linear forwards;
-    opacity: 0;
+    position: relative;
+    overflow: hidden;
+}
+.secondary-text-inner {
+    transform: translateX(-100%);
+}
+
+.splash-text.scale .initial-text {
+    animation: scale-easeOutElastic 1s forwards;
+}
+
+.splash-text.transition {
+    transform: translateX(0);
+    transition: transform 1s ease-out;
+}
+
+.splash-text.transition .secondary-text div {
+    transform: translateX(0);
+    transition: transform 1s ease-out;
 }
 
 @keyframes scaleIn {
     0% { transform: scale(0.0); opacity: 0;}
     100% { transform: scale(1.0); opacity: 1;}
 }
+
 @keyframes bounce {
     0%   { transform: translateY(0); }
-    40%  { transform: translateY(-30px); }
+    40%  { transform: translateY(-2rem); }
     60%  { transform: translateY(0); }
-    80%  { transform: translateY(-15px); }
+    80%  { transform: translateY(-1rem); }
     100% { transform: translateY(0); }
 }
-@keyframes hideMe {
-    0% { opacity: 1;}
-    100% { opacity: 0;}
-}
-@keyframes moveLeft {
-    0% { transform: translateX(0)}
-    50% { transform: translateX(-5rem)}
-    80% { transform: translateX(-7rem);}
-    100% { transform: translateX(-10rem); opacity: 0;}
-}
-@keyframes moveRight {
-    0% { transform: translateX(-14rem); opacity: 0.5}
-    50% { transform: translateX(-12rem); opacity: 1}
-    80% { transform: translateX(-10rem); opacity: 1}
-    100% { transform: translateX(-8rem); opacity: 1}
+
+@keyframes scale-easeOutElastic {
+    0% {transform: scale(0);}
+    16% {transform: scale(1.2);}
+    28% {transform: scale(0.87);}
+    44% {transform: scale(1.05);}
+    59% {transform: scale(0.98);}
+    73% {transform: scale(1.01);}
+    88% {transform: scale(1);}
+    100% {transform: scale(1);}
 }
 
 

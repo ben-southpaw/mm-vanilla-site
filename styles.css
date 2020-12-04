@@ -3,7 +3,6 @@
 @import "css/contact.css";
 @import "css/footer.css";
 
-
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +12,8 @@
 :root{
     --base-fontsize: 12;
     --base-design-width: 1920;
+    --footer-height: 100px;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1)
 }
 
 ::-webkit-scrollbar {
@@ -21,15 +22,17 @@
 
 html {
     /*Base font size based of viewport width (1920px) for using rems*/
-    font-size: calc(var(--base-fontsize)/var(--base-design-width) * 100vw);
+     font-size: calc(var(--base-fontsize)/var(--base-design-width) * 100vw);
+}
+
+body {
+    background: black;
 }
 
 .outer-wrapper {
     transform-origin: top left;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
     position: absolute;
-    /*Hiding scrollbar*/
     scrollbar-width: none;
     -ms-overflow-style: none;
     height: 100%;
@@ -47,7 +50,7 @@ html {
 .carousel-bg {
     height: 100%;
     position: absolute;
-    transition: transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 2s var(--ease-out-expo);
 
 }
 
@@ -55,17 +58,19 @@ html {
     height: 100%;
     width: 100%;
     display: flex;
+    position: absolute;
 }
 
 .carousel-item {
-    top: calc((100vh - 100px) / 2);
+    top: calc((100vh - var(--footer-height)) / 2);
     position: absolute;
-    transform: translateY(-10%);
+    transform: translateY(-50%);
     text-transform: uppercase;
     text-decoration: underline;
     list-style-type: none;
     color: white;
-    font-family: 'klav-light', Arial, sans-serif;
+    font-family:
+    'klav-light', Arial, sans-serif;
     font-size: 5rem;
     opacity: 0;
     transition: opacity 500ms ease-out;
@@ -73,17 +78,14 @@ html {
 
 .carousel-item.isActive {
     opacity: 1;
-
     transition-delay: 500ms;
 }
-
 .carousel-item[align='left'] {
-    left: 10%;
+    left: 7vw;
 }
 .carousel-item[align='right'] {
     right: 10%
 }
-
 .carousel-item:first-of-type {
      top: 4rem;
      left: 4rem;
@@ -94,7 +96,7 @@ html {
 
 .arrow {
     position: absolute;
-    top: calc((100vh - 100px) / 2);
+    top: calc((100vh - var(--footer-height)) / 2);
     transform: translateY(-50%);
     height: 5rem;
     width: 5rem;
@@ -111,23 +113,42 @@ html {
     left: 5rem;
     border-right: none;
     border-top: none;
-    transform: rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
+
 }
 
 .arrow-right {
     right: 5rem;
     border-left: none;
     border-bottom: none;
-    transform: rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
 }
 
 
+@media only screen and (max-width: 840px) {
+    :root{
+        --base-fontsize: 12;
+        --base-design-width: 700;
+    }
+    .carousel-item {
+        top: calc((100vh - var(--footer-height)) / 2);
+        transform: translateY(-50%);
+        position: absolute;
+        font-size: 4rem;
+    }
+    .carousel-item[align='left'] {
+        left: 18vw;
+    }
+    .carousel-item[align='right'] {
+        right: 18vw;
+    }
+    .carousel-item:first-of-type {
+        left: 4rem;
+    }
 
-/*.bg {*/
-/*    background-image: url(./assets/images/background.jpg);*/
-/*    background-repeat: no-repeat;*/
-/*    //background-size: 600vw 100vh;*/
-/*}*/
+
+}
+
 
 
 

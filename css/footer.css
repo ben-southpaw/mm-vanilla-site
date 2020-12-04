@@ -1,7 +1,6 @@
 
 /*Footer styles*/
 footer {
-    height: 100px;
     width: 100vw;
     display: flex;
     position: absolute;
@@ -70,7 +69,6 @@ nav {
     background: white;
 }
 
-
 .icon {
     filter: invert(100%);
     width: 100px;
@@ -79,19 +77,19 @@ nav {
 }
 
 .footer-text-intro {
-    font-size: 10px;
+    font-size: 2rem;
     font-family: 'klav-light', Arial, sans-serif;
     color: white;
     opacity: 0;
 }
 
 .footer-text {
-    font-size: 10px;
+    font-size: 2rem;
     font-family: 'klav-light', Arial, sans-serif;
     color: white;
     margin-left: 2rem;
     align-self: center;
-    width: 35rem;
+    min-width: 35rem;
     opacity: 0;
     transition: opacity 200ms ease-out;
 }
@@ -100,5 +98,27 @@ nav {
     opacity: 1;
     transition-delay: 500ms;
     transition-duration: 500ms;
+}
+
+@media only screen and (max-width: 840px) {
+    .flex-container {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100vw;
+    }
+    .footer-text {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+    .flex-right {
+        display: flex;
+    }
+
+    .icon {
+        position: relative;
+        margin-top: auto;
+        top: 1rem;
+    }
+
 }
 

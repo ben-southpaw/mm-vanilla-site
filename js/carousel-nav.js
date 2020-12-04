@@ -6,8 +6,6 @@ export default class CarouselNav {
     constructor(el, setNavIndex = () => {}) {
         this.el = el;
         this.setNavIndex = setNavIndex;
-        // this.navValues = this.el.querySelectorAll('.nav-value');
-
         this.createItems()
     }
 
@@ -17,7 +15,6 @@ export default class CarouselNav {
             const navItem = new NavItem(el, index, this.onItemClick.bind(this));
             return navItem;
         })
-        // console.log(navItem, 'whatup');
     }
 
     setIndex(clickedIndex) {
@@ -33,6 +30,4 @@ export default class CarouselNav {
     onItemClick(clickedIndex) {
         this.setNavIndex(clickedIndex);
     }
-
-    /*Get onclick value of index pass to parent and set currentIndex from c*/
 }

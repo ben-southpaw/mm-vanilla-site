@@ -3,20 +3,18 @@ import SplashScreen from './js/splash.js';
 
 class App {
     constructor(props) {
+        this.resetThrottle = true;
+
         this.splash = new SplashScreen();
         this.carousel = new Carousel();
         this.addEvents();
         this.resize();
-
     }
-
 
     addEvents() {
         window.addEventListener('resize', this.resize.bind(this));
         window.addEventListener('mousewheel', this.onScroll.bind(this));
-        window.addEventListener('load', this.onSplash.bind(this));
         window.addEventListener('keydown', this.onKeyDown.bind(this));
-
     }
 
     resize() {
@@ -26,18 +24,21 @@ class App {
     }
 
     onScroll(e){
-        console.log(e);
+        if (this.isScrolling) return;
+        this.scroDir = Math.sign(e.deltaY);
+
+        this.isScrolling = true;
+        setTimeout(() => {
+            this.isScrolling = false;
+        }, 300)
+
+        if (this.scroDir > 0) {
+            this.carousel.next();
+        } else {
+            this.carousel.previous();
+        }
     }
 
-
-
-    onSplash(e){
-        console.log(e,'loaded');
-        this.splash.onLoad();
-    }
-
-
-    //register clicks then set index based on this
     onKeyDown(e) {
         switch (e.key) {
             case 'ArrowLeft':
@@ -48,12 +49,8 @@ class App {
                 this.carousel.next();
                 break;
         }
-        // this.carousel.setIndex(7);
-
     }
-
 }
 
 const app = new App();
-
 window.app = app

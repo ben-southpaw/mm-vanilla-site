@@ -1,21 +1,18 @@
-#contact-slide {
-    height: 100%;
-    width: 100%;
-    background-color: black;
-    top: unset;
-}
-
 .contact-container {
-    float: right;
-    width: calc(50% - 30px);
-    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50rem;
+    color: black;
     text-align: right;
-    transition: transform 1s 1s ease-in;
-    transform: translateX(350px);
+    transition: transform 2.5s var(--ease-out-expo);
+    transform: translateX(100%);
 }
 
 .contact-container.isActive {
     transform: translateX(0);
+    transition-delay: 0s;
 }
 
 .contact-title {
@@ -26,6 +23,7 @@
     font-family: 'klav-light', Arial, sans-serif;
     font-size: 5rem;
     color: white;
+    text-transform: uppercase;
     text-decoration: underline;
 }
 
@@ -59,6 +57,13 @@
 i {
     margin: 0 1rem;
 }
+
+@media only screen and (max-width: 840px) {
+    .contact-container {
+        max-width: 60vw;
+    }
+}
+
 
 
 

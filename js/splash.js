@@ -1,23 +1,40 @@
 export default class SplashScreen {
-    constructor(props) {
+    constructor() {
         this.splash = document.querySelector('.splash');
-        // this.initialText = document.querySelector('.initial-text');
-        // this.secondaryText = document.querySelector('.secondary-text');
-        this.onLoad();
+        this.monk = document.querySelector('.monk-container');
+        this.text = document.querySelector('.splash-text');
 
-
+        this.startAnimation();
     }
 
-    onLoad() {
-        document.addEventListener('DOMContentLoaded', (e)=> {
-            setTimeout(()=>{
-                this.splash.classList.add('fade-out');
-                setTimeout(()=>{
-                    this.splash.style.display = 'none';
-                },500)
-            }, 4500);
-        })
-    }
+    startAnimation() {
+         const monkDelay = 100;
+         const textScaleDelay = 900;
+         const textTransitionDelay = 800;
+         const fadeOutDelay = 1500;
+        const hideDelay = 500;
 
-    /*Get onclick value of index pass to parent and set currentIndex from c*/
+         setTimeout(() => {
+             this.monk.classList.add('scale');
+         }, monkDelay);
+
+        setTimeout(() => {
+            this.text.classList.add('scale');
+
+            setTimeout(() => {
+                this.text.classList.add('transition');
+
+                setTimeout(() => {
+                    this.splash.classList.add('fade-out');
+                     setTimeout(()=>{
+                            this.splash.style.display = 'none';
+                        },hideDelay);
+
+                }, fadeOutDelay);
+
+            }, textTransitionDelay);
+
+        }, textScaleDelay);
+
+    }
 }
